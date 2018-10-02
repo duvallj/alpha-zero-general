@@ -1,8 +1,8 @@
-import Arena
-from MCTS import MCTS
-from othello.OthelloGame import OthelloGame, display
-from othello.OthelloPlayers import *
-from othello.pytorch.NNet import NNetWrapper as NNet
+import .Arena
+from .MCTS import MCTS
+from .othello.OthelloGame import OthelloGame, display
+from .othello.OthelloPlayers import *
+from .othello.pytorch.NNet import NNetWrapper as NNet
 
 import numpy as np
 from utils import *

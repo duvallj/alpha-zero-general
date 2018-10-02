@@ -7,18 +7,18 @@ import numpy as np
 import math
 import sys
 sys.path.append('../..')
-from utils import *
-from NeuralNet import NeuralNet
+from ...utils import *
+from ...NeuralNet import NeuralNet
 
 import argparse
-from OthelloNNet import OthelloNNet as onnet
+from .OthelloNNet import OthelloNNet as onnet
 
 args = dotdict({
     'lr': 0.001,
     'dropout': 0.3,
     'epochs': 10,
     'batch_size': 64,
-    'cuda': False,
+    'cuda': True,
     'num_channels': 512,
 })
 
