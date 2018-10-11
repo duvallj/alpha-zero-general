@@ -17,15 +17,15 @@ def convert_player(old_player):
         return 0
 
 class Strategy(MyCore):
-    def __init__(self):
-        self.act_init(2)
+    def __init__(self, checkpoint):
+        self.act_init(2, checkpoint)
 
     def act_init(self, num):
         self.args = args
         self.args.numMCTSSims = num
         self.game = Game(8)
         self.nnet = nn(self.game)
-        self.nnet.load_checkpoint("temp", "best.pth.tar")
+        self.nnet.load_checkpoint("temp2", "checkpoint_{}.pth.tar".format(checkpoint))
         self.mcts = MCTS(self.game, self.nnet, self.args)
 
     def convert_board(self, old_board):
@@ -41,7 +41,7 @@ class Strategy(MyCore):
         actBoard = self.convert_board(board)
         canonicalBoard = self.game.getCanonicalForm(actBoard, convert_player(player))
         going = True
-        while going: 
+        while going:
             pi = self.mcts.getActionProb(canonicalBoard, temp=0)
             action = np.random.choice(len(pi), p=pi)
             action_out = (action//self.game.n+1)*(self.game.n+2)+action%self.game.n+1

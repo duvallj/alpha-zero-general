@@ -14,7 +14,7 @@ args = dotdict({
     'cpuct': 1,
 
     'checkpoint': '/home/jduvall/sr/alpha-zero-general/temp2',
-    'load_model': False, #True,
+    'load_model': True,
     'load_folder_file': ('/home/jduvall/sr/alpha-zero-general/temp2/', 'best.pth.tar'),
     'numItersForTrainExamplesHistory': 30,
 
